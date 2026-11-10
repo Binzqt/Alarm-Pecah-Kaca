@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Alarm pecah kaca simulasi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+
+    { "type": "wokwi-pushbutton", "id": "snd", "top": 40, "left": 340, "attrs": { "color": "yellow", "label": "SUARA" } },
+
+    { "type": "wokwi-led", "id": "led1", "top": -160, "left": 340, "attrs": { "color": "red", "label": "ALARM" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": -90, "left": 310, "attrs": { "value": "220" } },
+
+    { "type": "wokwi-buzzer", "id": "bz1", "top": -170, "left": 440, "attrs": { "volume": "0.1" } },
+
+    { "type": "wokwi-pushbutton", "id": "btn_reset", "top": -100, "left": 460, "attrs": { "color": "blue", "label": "RESET" } }
+  ],
+  "connections": [
+    [ "snd:1.l", "uno:2", "green", [] ],
+    [ "snd:2.l", "uno:GND.2", "black", [] ],
+
+    [ "uno:7", "r1:1", "red", [] ],
+    [ "r1:2", "led1:A", "red", [] ],
+    [ "led1:C", "uno:GND.1", "black", [] ],
+
+    [ "uno:8", "bz1:2", "orange", [] ],
+    [ "bz1:1", "uno:GND.1", "black", [] ],
+
+    [ "uno:3", "btn_reset:1.l", "blue", [] ],
+    [ "btn_reset:2.l", "uno:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}
